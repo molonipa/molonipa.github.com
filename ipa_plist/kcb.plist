@@ -11,7 +11,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>http://molonipa.github.io/kucunbao/InventoryTool.ipa</string>
+					<string>http://molonipa.qiniudn.com/InventoryTool.ipa</string>
 				</dict>
 				<dict>
 					<key>kind</key>
@@ -19,7 +19,7 @@
 					<key>needs-shine</key>
 					<true/>
 					<key>url</key>
-					<string>http://molon.me/avatar.jpg</string>
+					<string>http://molonipa.github.io/ipa_plist/kcb.png</string>
 				</dict>
 				<dict>
 					<key>kind</key>
@@ -27,7 +27,7 @@
 					<key>needs-shine</key>
 					<true/>
 					<key>url</key>
-					<string>http://molon.me/avatar.jpg</string>
+					<string>http://molonipa.github.io/ipa_plist/kcb.png</string>
 				</dict>
 			</array>
 			<key>metadata</key>
