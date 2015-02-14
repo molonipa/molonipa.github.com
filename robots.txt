@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /mshandbook_server.json
+Disallow: /rule.html
