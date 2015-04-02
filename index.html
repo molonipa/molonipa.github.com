@@ -72,6 +72,9 @@
             },
             "直接下載安裝": function() {
                 window.location = "mshandbook1.0.0.apk?" + Date.parse(new Date());
+            },
+            "取消": function(){
+                $(this).dialog('close');
             }
           }
         });
@@ -83,7 +86,7 @@
   </script>
 </head>
 <body style="background-color: rgba(250, 250, 250, 1);">
-    <div id="dialog" style="text-align: center;">
+    <div id="dialog" style="text-align: center;display: none;">
       <p>由於壹些用戶無法使用GooglePlay下載，所以提供兩種安裝方式，請自行根據需要選擇。:)</p>
     </div>
     <center>
