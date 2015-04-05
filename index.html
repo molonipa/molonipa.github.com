@@ -99,6 +99,11 @@
             if (checkIfWeChatQQ) {
                 e.preventDefault(); //這裏要取消默認行為
             }
+
+            if (isAndroid()) {
+                alert("您是Android系統哦，請點擊GooglePlay按鈕");
+                return;
+            }
         });
 
         $( "#install_android" ).click(function() {
