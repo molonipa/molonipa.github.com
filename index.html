@@ -81,26 +81,28 @@
             return (userAgent.indexOf("qq") != -1);
         }
 
-        $('#install_ios').on('click', function(e) {
+        function checkIfWeChatQQ(){
             //判斷是否是微信裏，是的話就提示需要用其他瀏覽器安裝
             if (isWeChat()||isQQ()) {
                 e.preventDefault(); //這裏要取消默認行為
                 if (isiOS()) {
                     alert("請點擊右上角，選擇以 Safari 打開即可下載。");
-                    return;
+                    return YES;
                 }
                 alert("請點擊右上角，選擇以 外部瀏覽器 打開即可下載。");
+                return YES;
+            }
+            return NO;
+        }
+
+        $('#install_ios').on('click', function(e) {
+            if (checkIfWeChatQQ) {
+                e.preventDefault(); //這裏要取消默認行為
             }
         });
 
         $( "#install_android" ).click(function() {
-            //判斷是否是微信裏，是的話就提示需要用其他瀏覽器安裝
-            if (isWeChat()||isQQ()) {
-                if (isiOS()) {
-                    alert("請點擊右上角，選擇以 Safari 打開即可下載。");
-                    return;
-                }
-                alert("請點擊右上角，選擇以 外部瀏覽器 打開即可下載。");
+            if (checkIfWeChatQQ) {
                 return;
             }
 
