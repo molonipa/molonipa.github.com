@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>怪物彈珠手冊</title>
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-itunes-app" content="app-id=963056590" affiliate-data="11lLuB">
     <meta name="baidu-site-verification" content="HCr0fLSwiE" />
     <meta name="keywords" content="怪物弹珠,怪物弹珠攻略,怪物弹珠图鉴,怪弹手册,丢饭手册,怪物弹珠手册,丢饭手册 For 怪物弹珠,怪物彈珠,怪物彈珠攻略,怪物彈珠圖鑒,怪彈手冊,丟飯手冊,怪物彈珠手冊,丟飯手冊 For 怪物彈珠" />
@@ -60,6 +63,55 @@
     </style>
     <script>
       $(function() {
+        //得到user_agent，判断浏览器类型
+        var userAgent = navigator.userAgent.toLowerCase();
+
+        function isiOS() {
+            return (userAgent.indexOf("iphone") != -1 || userAgent.indexOf("ipad") != -1 || userAgent.indexOf("ipod") != -1);
+        }
+        function isAndroid() {
+            return (userAgent.indexOf("android") != -1);
+        }
+        //微信里网页浏览器不可直接安装
+        function isWeChat() {
+            return (userAgent.indexOf("micromessenger") != -1);
+        }
+        //QQ是可以的(此方法其实无用)，但微博不可以，微博没有给予特殊的UA标识
+        function isQQ() {
+            return (userAgent.indexOf("qq") != -1);
+        }
+
+        $('#install_ios').on('click', function(e) {
+            //判斷是否是微信裏，是的話就提示需要用其他瀏覽器安裝
+            if (isWeChat()||isQQ()) {
+                e.preventDefault(); //這裏要取消默認行為
+                if (isiOS()) {
+                    alert("請點擊右上角，選擇以 Safari 打開即可下載。");
+                    return;
+                }
+                alert("請點擊右上角，選擇以 外部瀏覽器 打開即可下載。");
+            }
+        });
+
+        $( "#install_android" ).click(function() {
+            //判斷是否是微信裏，是的話就提示需要用其他瀏覽器安裝
+            if (isWeChat()||isQQ()) {
+                if (isiOS()) {
+                    alert("請點擊右上角，選擇以 Safari 打開即可下載。");
+                    return;
+                }
+                alert("請點擊右上角，選擇以 外部瀏覽器 打開即可下載。");
+                return;
+            }
+
+            if (isiOS()) {
+                alert("您是iOS系統哦，請點擊AppStore按鈕");
+                return;
+            }
+
+            $( "#dialog" ).dialog( "open" );
+        });
+
         $( "#dialog" ).dialog({
           dialogClass: "no-close",
           autoOpen: false,
@@ -78,10 +130,6 @@
             }
           }
         });
-     
-        $( "#opener" ).click(function() {
-          $( "#dialog" ).dialog( "open" );
-        });
       });
   </script>
 </head>
@@ -94,12 +142,10 @@
             <p>丟飯手冊 For 怪物彈珠</p>
         </div>
         <div>
-            <a href="https://itunes.apple.com/app/guai-wu-dan-zhu-shou-ce/id963056590">
+            <a id="install_ios" href="https://itunes.apple.com/app/guai-wu-dan-zhu-shou-ce/id963056590">
                 <img src="images/global-apple-store-badge@2x.png" width="154" height="45.5" alt="Go to the App Store"/>
             </a>
-            <!-- <a href="mshandbook1.0.0.apk"> -->
-                <img id="opener" style="cursor:pointer" src="images/global-google-play-badge@2x.png" width="154" height="45.5" alt="Go to the Google Play"/>
-            <!-- </a> -->
+            <img id="install_android" style="cursor:pointer" src="images/global-google-play-badge@2x.png" width="154" height="45.5" alt="Go to the Google Play"/>
         </div>
         <div id="followUs">
             <p>
