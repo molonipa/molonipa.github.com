@@ -84,19 +84,18 @@
         function checkIfWeChatQQ(){
             //判斷是否是微信裏，是的話就提示需要用其他瀏覽器安裝
             if (isWeChat()||isQQ()) {
-                e.preventDefault(); //這裏要取消默認行為
                 if (isiOS()) {
                     alert("請點擊右上角，選擇以 Safari 打開即可下載。");
-                    return YES;
+                    return true;
                 }
                 alert("請點擊右上角，選擇以 外部瀏覽器 打開即可下載。");
-                return YES;
+                return true;
             }
-            return NO;
+            return false;
         }
 
         $('#install_ios').on('click', function(e) {
-            if (checkIfWeChatQQ) {
+            if (checkIfWeChatQQ()) {
                 e.preventDefault(); //這裏要取消默認行為
             }
 
@@ -107,7 +106,7 @@
         });
 
         $( "#install_android" ).click(function() {
-            if (checkIfWeChatQQ) {
+            if (checkIfWeChatQQ()) {
                 return;
             }
 
@@ -115,7 +114,6 @@
                 alert("您是iOS系統哦，請點擊AppStore按鈕");
                 return;
             }
-
             $( "#dialog" ).dialog( "open" );
         });
 
