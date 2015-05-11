@@ -63,6 +63,27 @@
     </style>
     <script>
       $(function() {
+        //多语言类型
+        var userLang = (navigator.language || navigator.userLanguage).toLowerCase(); 
+        function isJP(){
+            return userLang.indexOf("ja")!=-1;
+        }
+        function isCN(){
+            return userLang.indexOf("cn")!=-1;
+        }
+        if (isJP()) {
+            $( "#v_png" ).attr("poster","videos/screenshot_jp.png");
+            $( "#v1_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
+            $( "#v2_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
+            $( "#v3_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
+        }else if(isCN()){
+            $( "#v_png" ).attr("poster","videos/screenshot_cn.png");
+            $( "#v1_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
+            $( "#v2_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
+            $( "#v3_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
+        }
+
+
         //得到user_agent，判断浏览器类型
         var userAgent = navigator.userAgent.toLowerCase();
 
@@ -160,9 +181,10 @@
             </p>
         </div>
         <div>
-            <video width="320" height="568" autoplay="YES" loop="YES" poster="videos/screenshot.png" >
-                <source src="videos/screenshot@2x.mp4" type="video/mp4" media="(min-device-pixel-ratio:2), (-webkit-min-device-pixel-ratio:2), (min--moz-device-pixel-ratio:2), (-o-min-device-pixel-ratio:2)" />
-                <source src="videos/screenshot@2x.mp4" type="video/mp4" media="(max-device-pixel-ratio:1), (-webkit-max-device-pixel-ratio:1), (max--moz-device-pixel-ratio:1), (-o-max-device-pixel-ratio:1)" />
+            <video id="v_png" width="320" height="568" autoplay="YES" loop="YES" poster="videos/screenshot_tw.png" >
+                <source id="v3_mp4" src="videos/screenshot_tw@2x.mp4" type="video/mp4" media="(min-device-pixel-ratio:2), (-webkit-min-device-pixel-ratio:2), (min--moz-device-pixel-ratio:2), (-o-min-device-pixel-ratio:3)" />
+                <source id="v2_mp4" src="videos/screenshot_tw@2x.mp4" type="video/mp4" media="(min-device-pixel-ratio:2), (-webkit-min-device-pixel-ratio:2), (min--moz-device-pixel-ratio:2), (-o-min-device-pixel-ratio:2)" />
+                <source id="v1_mp4" src="videos/screenshot_tw@2x.mp4" type="video/mp4" media="(max-device-pixel-ratio:1), (-webkit-max-device-pixel-ratio:1), (max--moz-device-pixel-ratio:1), (-o-max-device-pixel-ratio:1)" />
             </video>
         </div>
     </center>
