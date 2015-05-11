@@ -71,12 +71,65 @@
         function isCN(){
             return userLang.indexOf("cn")!=-1;
         }
+
+        var google_url = "https://play.google.com/store/apps/details?id=com.zz.dz";
+        var apk_url = "http://apk.91.com/soft/Controller.ashx?Action=Download&id=41504063&m=5c06316ab332154330afaa095ab86c7b";
+
+        var atog_tips = "您是Android系統哦，請點擊GooglePlay按鈕";
+        var itoa_tips = "您是iOS系統哦，請點擊AppStore按鈕";
+        var android_tips_buttons = {
+            "前往GooglePlay": function() {
+                window.location = google_url;
+            },
+            "直接下載安裝": function() {
+                window.location = apk_url;
+            },
+            "取消": function(){
+                $(this).dialog('close');
+            }
+          };
         if (isJP()) {
+            document.title = "モンスト案内";
+            $("#lb_title").text("モンスト案内 for モンスト");
+            $("#android_tips").text("You Can Use Two Ways To Install  :)");
+            
+            atog_tips = "Please Click The GoolePlay Button With Android Device";
+            itoa_tips = "Please Click The AppStore Button With iOS Device";
+            android_tips_buttons = {
+                "Go To GooglePlay": function() {
+                    window.location = google_url;
+                },
+                "APK": function() {
+                    window.location = apk_url;
+                },
+                "Cancel": function(){
+                    $(this).dialog('close');
+                }
+              };
+
             $( "#v_png" ).attr("poster","videos/screenshot_jp.png");
             $( "#v1_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
             $( "#v2_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
             $( "#v3_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
         }else if(isCN()){
+            document.title = "怪物弹珠手册";
+            $("#lb_title").text("丢饭手册 for 怪物弹珠");
+            $("#android_tips").text("由于一些用户无法使用GooglePlay下载，所以提供两种安装方式，请自行根据需要选择。:)");
+
+            atog_tips = "您是Android系统哦，请点击GooglePlay按钮";
+            itoa_tips = "您是iOS系统哦，请点击AppStore按钮";
+            android_tips_buttons = {
+                "前往GooglePlay": function() {
+                    window.location = google_url;
+                },
+                "直接下载安装": function() {
+                    window.location = apk_url;
+                },
+                "取消": function(){
+                    $(this).dialog('close');
+                }
+              };
+
             $( "#v_png" ).attr("poster","videos/screenshot_cn.png");
             $( "#v1_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
             $( "#v2_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
@@ -121,7 +174,7 @@
             }
 
             if (isAndroid()) {
-                alert("您是Android系統哦，請點擊GooglePlay按鈕");
+                alert(atog_tips);
                 return;
             }
         });
@@ -132,7 +185,7 @@
             }
 
             if (isiOS()) {
-                alert("您是iOS系統哦，請點擊AppStore按鈕");
+                alert(itoa_tips);
                 return;
             }
             $( "#dialog" ).dialog( "open" );
@@ -144,29 +197,18 @@
           resizable: false,
           height:115,
           modal: true,
-          buttons: {
-            "前往GooglePlay": function() {
-                window.location = "https://play.google.com/store/apps/details?id=com.zz.dz";
-            },
-            "直接下載安裝": function() {
-                // window.location = "mshandbook2.0.0.apk?" + Date.parse(new Date());
-                window.location = "http://apk.91.com/soft/Controller.ashx?Action=Download&id=41504063&m=5c06316ab332154330afaa095ab86c7b";
-            },
-            "取消": function(){
-                $(this).dialog('close');
-            }
-          }
+          buttons: android_tips_buttons
         });
       });
   </script>
 </head>
 <body style="background-color: rgba(250, 250, 250, 1);">
     <div id="dialog" style="text-align: center;display: none;">
-      <p>由於壹些用戶無法使用GooglePlay下載，所以提供兩種安裝方式，請自行根據需要選擇。:)</p>
+      <p id="android_tips">由於壹些用戶無法使用GooglePlay下載，所以提供兩種安裝方式，請自行根據需要選擇。:)</p>
     </div>
     <center>
         <div style="margin-top:30px;font-family:fantasy">
-            <p>丟飯手冊 For 怪物彈珠</p>
+            <p id="lb_title">丟飯手冊 For 怪物彈珠</p>
         </div>
         <div>
             <a id="install_ios" href="https://itunes.apple.com/app/apple-store/id963056590?pt=5819800&ct=diufan&mt=8">
@@ -176,7 +218,7 @@
         </div>
         <div id="followUs">
             <p>
-                <a href="http://molon.me/">Blog</a> /
+                <!-- <a href="http://molon.me/">Blog</a> / -->
                 <a href="mailto:long.mu@qq.com">Support</a>
             </p>
         </div>
