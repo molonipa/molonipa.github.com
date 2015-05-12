@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-itunes-app" content="app-id=963056590" affiliate-data="11lLuB">
     <meta name="baidu-site-verification" content="HCr0fLSwiE" />
-    <meta name="keywords" content="怪物弹珠,怪物弹珠攻略,怪物弹珠图鉴,怪弹手册,丢饭手册,怪物弹珠手册,丢饭手册 For 怪物弹珠,怪物彈珠,怪物彈珠攻略,怪物彈珠圖鑒,怪彈手冊,丟飯手冊,怪物彈珠手冊,丟飯手冊 For 怪物彈珠" />
+    <meta name="keywords" content="怪物弹珠,怪物弹珠攻略,怪物弹珠图鉴,怪弹手册,丢饭手册,怪物弹珠手册,丢饭手册 For 怪物弹珠,怪物彈珠,怪物彈珠攻略,怪物彈珠圖鑒,怪彈手冊,丟飯手冊,怪物彈珠手冊,丟飯手冊 For 怪物彈珠,モンスト案内,モンスト" />
     <link href="favicons/favicon_180.png" rel="shortcut icon">
     <link rel="stylesheet" href="jquery/jquery-ui.css">
   <script src="jquery/jquery-1.10.2.js"></script>
@@ -107,10 +107,11 @@
                 }
               };
 
-            $( "#v_png" ).attr("poster","videos/screenshot_jp.png");
-            $( "#v1_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
-            $( "#v2_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
-            $( "#v3_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
+              $("#youtube").attr("src","https://www.youtube.com/embed/fUsFMFlALVI");
+            // $( "#v_png" ).attr("poster","videos/screenshot_jp.png");
+            // $( "#v1_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
+            // $( "#v2_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
+            // $( "#v3_mp4" ).attr("src","videos/screenshot_jp@2x.mp4");
         }else if(isCN()){
             document.title = "怪物弹珠手册";
             $("#lb_title").text("丢饭手册 for 怪物弹珠");
@@ -130,10 +131,10 @@
                 }
               };
 
-            $( "#v_png" ).attr("poster","videos/screenshot_cn.png");
-            $( "#v1_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
-            $( "#v2_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
-            $( "#v3_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
+            // $( "#v_png" ).attr("poster","videos/screenshot_cn.png");
+            // $( "#v1_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
+            // $( "#v2_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
+            // $( "#v3_mp4" ).attr("src","videos/screenshot_cn@2x.mp4");
         }
 
 
@@ -223,11 +224,12 @@
             </p>
         </div>
         <div>
-            <video id="v_png" width="320" height="568" autoplay="YES" loop="YES" poster="videos/screenshot_tw.png" >
+            <iframe id="youtube" src="https://www.youtube.com/embed/L6_ITH8_efM" frameborder="0" allowfullscreen></iframe>
+            <!-- <video id="v_png" width="320" height="568" autoplay="YES" loop="YES" poster="videos/screenshot_tw.png" >
                 <source id="v3_mp4" src="videos/screenshot_tw@2x.mp4" type="video/mp4" media="(min-device-pixel-ratio:2), (-webkit-min-device-pixel-ratio:2), (min--moz-device-pixel-ratio:2), (-o-min-device-pixel-ratio:3)" />
                 <source id="v2_mp4" src="videos/screenshot_tw@2x.mp4" type="video/mp4" media="(min-device-pixel-ratio:2), (-webkit-min-device-pixel-ratio:2), (min--moz-device-pixel-ratio:2), (-o-min-device-pixel-ratio:2)" />
                 <source id="v1_mp4" src="videos/screenshot_tw@2x.mp4" type="video/mp4" media="(max-device-pixel-ratio:1), (-webkit-max-device-pixel-ratio:1), (max--moz-device-pixel-ratio:1), (-o-max-device-pixel-ratio:1)" />
-            </video>
+            </video> -->
         </div>
     </center>
 </body>
