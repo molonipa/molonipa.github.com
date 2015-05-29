@@ -1,3 +1,5 @@
 <Files *>
  Options -Indexes
 </Files>
+
+AddType application/json .json
